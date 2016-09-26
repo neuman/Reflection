@@ -1,0 +1,17 @@
+{% extends "base/theme.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="{% static 'lang-logo.png'%}">
+    </a>
+    <h1>Insert Title</h1>
+    <p>Insert Text Here</p>
+    <a type="button" class="btn btn-lg btn-default" href="/hello/guide/"><span class="glyphicon glyphicon-flash"></span> Getting Started with SCRS</a>
+  </div>
+</div>
+
+{% endblock %}

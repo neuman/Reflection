@@ -1,0 +1,11 @@
+  {% if available_verbs %}
+  <div class="list-group"> 
+  {% for verb in available_verbs %}
+  {% if verb.visible %}
+
+<a href="{{ verb.url }}" class="list-group-item">{{ verb.display_name }}</a> 
+
+  {% endif %}
+  {% endfor %}
+  </div>
+  {% endif %} 

@@ -1,0 +1,111 @@
+{% extends "base/theme.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="{% static 'lang-logo.png'%}">
+  </a>
+  <h1>Self-Centric Relational System (SCRS) Interpretation Guide</h1>
+  <p class="p1 ft1">The SCRS graphic shows your relational world as you see it. Each circle or “planet” orbiting the central circle (you) represents a person in your life.</p>
+</div>
+</div>
+
+<div  class="swimlane  section ">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <h1>The Orbits</h1>
+          </div>
+          <div class="row">
+            <ul class="">
+                <li class="selling-point-item">People in the Primary or Inner circle are those with whom you are in close association either by your choice or not. The relationship is a major focus of your time and resources and may be positive or negative.</li>
+                <li class="selling-point-item">People in the Secondary or Middle circle are those with whom you are not as close but who are more than acquaintances. They have some influence on your life but don’t require as much time and resources as those in your Inner circle.</li>
+                <li class="selling-point-item">People in the Tertiary or Outer circle have little to no influence in your life, are of little importance, and are a minor demand on your time and resources.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+</div>
+</div>
+
+<div  class="swimlane grey section">
+    <div class="container">
+
+      <div class="row">
+          <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
+              <div class="row">
+                  <h1>Strength Of Influence</h1>
+              </div>
+              <div class="row">
+                <ul class="">
+                    <li class="selling-point-item">A large dot represents a person who is a strong influence in your life</li>
+                    <li class="selling-point-item">A medium dot represents a person who is a moderate influence in your life</li>
+                    <li class="selling-point-item">A small dot represents a person who is a weak influence in your life</li>
+                </ul>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div  class="swimlane section ">
+    <div class="container">
+
+      <div class="row">
+          <div class="col-md-6">
+              <div class="row">
+                  <h1>Likeability</h1>
+              </div>
+              <div class="row">
+                <ul class="">
+                    <li class="selling-point-item">Within each orbit, the closer a planet is to you, the more you like that person</li>
+                    <li class="selling-point-item">The closest planets are people you like the best</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+</div>
+</div>
+
+<div  class="swimlane grey section ">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6">
+        <div class="row vcenter">
+        <img src="{% static 'colorbar.png'%}" class="img-responsive img-rounded" alt="Cinque Terre" style="width:auto;height:auto;">
+        </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+              <h1>Effect Or Influence (Positive Or Negative)</h1>
+          </div>
+          <div class="row">
+            <ul class="">
+                <li class="selling-point-item">The color of the planet represents the degree of positive or negative influence a person has over you</li>
+                <li class="selling-point-item">Colorful planets represent a positive influence</li>
+                <li class="selling-point-item">A tan planet represents a neutral influence</li>
+                <li class="selling-point-item">Dark colored planets represent a negative influence</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

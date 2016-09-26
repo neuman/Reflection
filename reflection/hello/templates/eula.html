@@ -1,0 +1,27 @@
+{% extends "base/carteblanche.html" %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+      <div class="row ">
+        {% if form %}
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.media }}
+
+          <div class="panel panel-warning"> 
+            <div class="panel-heading"> 
+              <h3 class="panel-title">{{ termsheet.terms | safe }}</h3> 
+            </div> 
+            <div class="panel-body">
+
+
+
+              {{ form|bootstrap }}
+            </div>
+          </div>
+          <button type="submit" class="btn btn-info">{{ verb|default:"Submit" }}</button>
+        </form>
+
+        {% endif %}
+      </div>
+{% endblock %}
+
+

@@ -1,0 +1,62 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load bootstrap %}
+{% block main_area %}
+
+<div class="swimlane">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+<div class="bs-example" data-example-id="simple-breadcrumbs">
+<ol class="breadcrumb">
+    {% for breadcrumb in noun.get_parents reversed %}
+    <li><a href="{{ breadcrumb.get_absolute_url }}">{{ breadcrumb.get_model_name | title }}</a></li>
+    {% endfor %}
+     </ol> 
+</div>
+
+</div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="col-md-3">
+        {% block menu %}
+        {% include "base/menu.html" %}
+        {% endblock %}
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block optional_javascript %}
+<script src="/static/typeahead.bundle.min.js"></script>
+<script src="/static/bootstrap-tagsinput.min.js"></script>
+<script>
+$( document ).ready(function() {
+    $('.taginput').tagsinput({});
+
+$(function(){
+  function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+      return str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  var url = window.location.pathname;  
+  var activePage = stripTrailingSlash(url);
+
+  $('.list-group-item li a').each(function(){  
+    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+    if (activePage == currentPage) {
+      $(this).parent().addClass('active'); 
+    } 
+  });
+});
+});
+</script>
+{% endblock %}
