@@ -1,6 +1,9 @@
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+#from django.contrib.postgres.fields import JSONField
 from django.contrib.auth.models import User
+from jsonfield import JSONField
+from datetime import datetime, timedelta
+
 
 
 # Create your models here.
@@ -31,4 +34,13 @@ class Auditable(models.Model):
 
 
 class DataPoint(Auditable):
-    schemaless = JSONField(null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    datum = JSONField(null=True, blank=True)
+
+def get_time_horizon(days):
+    today = datetime.today()
+    date = today - timedelta(days=days)
+    return date
+
+def calc_percent_of(top, bottom):
+    return round((float(top) / float(bottom))*100)
