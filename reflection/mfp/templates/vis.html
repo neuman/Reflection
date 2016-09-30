@@ -17,26 +17,10 @@ $( document ).ready(function() {
                 text: 'MyFitnessPal'
             },
             xAxis: [{
-                categories: {% autoescape off %}{{ dates }}{% endautoescape %},
-                crosshair: true
+                type: 'datetime',
+                data: [{% for d in dates %}[Date.UTC({{ d.year }}, {{ d.month }}, {{ d.day }})]{% if forloop.last %}{% else %},{% endif %}{% endfor %}]
             }],
-            yAxis: [{ // Primary yAxis
-                labels: {
-                    format: '{value}°C',
-                    style: {
-                        color: Highcharts.getOptions().colors[2]
-                    }
-                },
-                title: {
-                    text: 'Temperature',
-                    style: {
-                        color: Highcharts.getOptions().colors[2]
-                    }
-                },
-                opposite: true
-
-            }, { // Secondary yAxis
-                gridLineWidth: 0,
+            yAxis: [{ // Secondary yAxis
                 title: {
                     text: 'Percent Of Goal',
                     style: {
@@ -90,7 +74,7 @@ $( document ).ready(function() {
             }, {
                 name: 'Sodium',
                 type: 'spline',
-                yAxis: 2,
+                yAxis: 1,
                 data: {{ sodium }},
                 marker: {
                     enabled: false
@@ -103,6 +87,7 @@ $( document ).ready(function() {
             }, {
                 name: 'Carbohydrates',
                 type: 'spline',
+                yAxis: 1,
                 data: {{ carbohydrates }},
                 tooltip: {
                     valueSuffix: ' %'
@@ -110,6 +95,7 @@ $( document ).ready(function() {
             }, {
                 name: 'Sugars',
                 type: 'spline',
+                yAxis: 1,
                 data: {{ sugar }},
                 tooltip: {
                     valueSuffix: ' %'
@@ -128,3 +114,4 @@ $( document ).ready(function() {
 </script>
 
 <div id="container" style="min-width: 400px; height: 100%; margin: 0 auto"></div>
+<iframe src="https://calendar.google.com/calendar/embed?src=soloptimus%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

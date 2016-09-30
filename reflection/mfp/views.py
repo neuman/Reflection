@@ -10,7 +10,7 @@ class VisView(TemplateView):
         # Call the base implementation first to get a context
         context = super(VisView, self).get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        horizon = cm.get_time_horizon(3)
+        horizon = cm.get_time_horizon(30)
         dataPoints = cm.DataPoint.objects.filter(date__gte=horizon).order_by('date')
         dates = []
         calories = []
@@ -20,7 +20,9 @@ class VisView(TemplateView):
         sugar = []
         protein = []
         for d in dataPoints:
-            dates.append(str(d.date.month)+"/"+str(d.date.day)+"/"+str(d.date.year))
+            #dates.append(str(d.date.month)+"/"+str(d.date.day)+"/"+str(d.date.year))
+            #dates.append(d.date.strftime("%Y-%m-1 00:00:00"))
+            dates.append(d.date)
             calories.append(cm.calc_percent_of(d.datum['totals']['calories'], d.datum['goals']['calories']))
             sodium.append(cm.calc_percent_of(d.datum['totals']['sodium'], d.datum['goals']['sodium']))
             carbohydrates.append(cm.calc_percent_of(d.datum['totals']['carbohydrates'], d.datum['goals']['carbohydrates']))

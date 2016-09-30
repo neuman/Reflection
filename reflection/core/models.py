@@ -44,3 +44,11 @@ def get_time_horizon(days):
 
 def calc_percent_of(top, bottom):
     return round((float(top) / float(bottom))*100)
+
+def get_most_recent_datapoint():
+    query = DataPoint.objects.all().order_by('-created_at')
+    if query.count() > 0:
+        return query[0]
+    else:
+        return None
+
